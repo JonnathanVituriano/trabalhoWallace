@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <locale.h>
 
-float obterQuantidadeJogadores() {
-	
-	setlocale(LC_ALL, "Portuguese");
-    float quantidadeJogadores;
+int obterQuantidadeJogadores() {
+    setlocale(LC_ALL, "Portuguese");
+    int quantidadeJogadores;
 
     do {
         printf("Digite a quantidade de jogadores (entre 1 e 4): ");
-        scanf("%f", &quantidadeJogadores);
+        scanf("%d", &quantidadeJogadores);
 
         if (quantidadeJogadores < 1 || quantidadeJogadores > 4) {
-            printf("Por favor, escolha um número entre 1 e 4.\n");
+            printf("Por favor, escolha um nÃºmero entre 1 e 4.\n");
         }
 
     } while (quantidadeJogadores < 1 || quantidadeJogadores > 4);
@@ -19,27 +18,23 @@ float obterQuantidadeJogadores() {
     return quantidadeJogadores;
 }
 
-void receberPalpites(float quantidadeJogadores) {
-    float palpite;
+void receberPalpites(int quantidadeJogadores) {
+    int palpite;
 
-    printf("\nCada jogador, por favor, dê o seu palpite:\n");
+    printf("\nCada jogador, por favor, dÃª o seu palpite:\n");
 
-    for (float i = 1; i <= quantidadeJogadores; ++i) {
-        printf("Jogador %.0f, digite o seu palpite: ", i);
-        scanf("%f", &palpite);
+    for (int i = 1; i <= quantidadeJogadores; ++i) {
+        printf("Jogador %d, digite o seu palpite: ", i);
+        scanf("%d", &palpite);
 
-
-        printf("Palpite do Jogador %.0f: %.2f\n", i, palpite);
+        printf("Palpite do Jogador %d: %d\n", i, palpite);
     }
 }
 
 int main() {
-    float qtdJogadores = obterQuantidadeJogadores();
+    int qtdJogadores = obterQuantidadeJogadores();
 
     receberPalpites(qtdJogadores);
 
-
-
     return 0;
 }
-
