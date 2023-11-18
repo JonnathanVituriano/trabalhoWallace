@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <locale.h>
+
+int Menu();  // Declaração da função Menu()
+
+void exibirCreditos() {
+    printf("Os desenvolvedores desse jogo são: \n Luis Henrique Ancores Paiva; \n Jonathan Vituriano;\n Luis Henrique Araújo;\n Gabriel Negromonte;\n Thiago Fernandes\n.");
+    printf("\nPressione Enter para voltar ao menu...\n");
+
+    // Aguarda a tecla Enter ser pressionada
+    while (getchar() != '\n');
+    getchar(); // Pega o Enter do usuário
+}
+
+int Menu() {
+    setlocale(0, "Portuguese");
+    int option, optionExt;
+            
+    while (1) {
+		printf("                                    _____  ___    ___      ____\n");
+	    printf("|\\      |  |     | |\\           /| |      |   \\  /   \\   /\n");
+	    printf("| \\     |  |     | | \\         / | |      |    ||     | |\n");
+	    printf("|  \\    |  |     | |  \\       /  | |____  |___/ |     |  \\____\n");
+	    printf("|   \\   |  |     | |   \\     /   | |      |\\    |     |       \\\n");
+	    printf("|    \\  |  |     | |    \\   /    | |      | \\   |     |        |\n");
+	    printf("|     \\ |   \\___/  |     \\ /     | |_____ |  \\   \\___/   _____/\n");
+	    printf("  _____           _____   _____   _____    _________  ___     ____\n");
+	    printf(" /       |     | /       |     \\ |       |     |     /   \\   /\n");
+	    printf("|        |     ||        |      ||       |     |    |     | |\n");
+	    printf(" \\____   |     | \\____   |_____/ |____   |     |    |     |  \\____\n");
+	    printf("      \\  |     |      \\  |       |       |     |    |     |       \\\n");
+	    printf("       | |     |       | |       |       |     |    |     |        |\n");
+	    printf(" _____/   \\___/  _____/  |       |_____  |     |     \\___/   _____/\n");
+
+        printf("\n\nEscolha uma opção: \n 1. Jogar\n 2. Créditos\n 3. Sair\n");
+        scanf("%d", &option);
+
+        if (option == 1) {
+            printf("Você escolheu jogar.\n");
+            // AQUI FICARIA O CÓDIGO DO GAME 
+            break;
+        } else if (option == 2) {
+            exibirCreditos();
+            // Não precisa de break aqui, pois queremos que o usuário pressione Enter antes de voltar ao menu
+        } else if (option == 3) {
+            printf("Você escolheu sair do jogo, tem certeza que quer sair?.\n 1. SIM\n 2.NÃO\n");
+            scanf("%d", &optionExt);
+            if (optionExt == 1) {
+            	printf ("Jogo Desligando...");
+                break;
+            } else if (optionExt == 2) {
+                printf("—————————————\n");
+            } else {
+                printf("Opção inválida. Tente novamente.\n");
+            }
+        } else {
+            printf("Opção inválida. Tente novamente.\n");
+        }
+    }
+
+    return option; // Retorne a opção escolhida pelo usuário
+}
