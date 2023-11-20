@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    // Inicializa o gerador de números aleatórios com base no tempo atual
+    srand(time(NULL));
+
+    // Gera um número aleatório entre 1 e 100
+    int numeroPensado = rand() % 100 + 1;
+
+    int tentativa, tentativasRestantes = 4;
+
+    printf("Bem-vindo ao jogo! Tente adivinhar o número entre 1 e 100.\n");
+
+    while (tentativasRestantes > 0) {
+        printf("Digite sua tentativa: ");
+        scanf("%d", &tentativa);
+
+        if (tentativa == numeroPensado) {
+            printf("Parabéns! Você acertou o número %d.\n", numeroPensado);
+            break;
+        } else {
+            printf("Dica: ");
+            if (tentativa < numeroPensado) {
+                printf("O número pensado é maior.\n");
+            } else {
+                printf("O número pensado é menor.\n");
+            }
+
+            tentativasRestantes--;
+            printf("Tentativas restantes: %d\n", tentativasRestantes);
+
+            if (tentativasRestantes == 0) {
+                printf("Suas tentativas acabaram. O número correto era %d.\n", numeroPensado);
+            }
+        }
+    }
+
+    return 0;
+}
