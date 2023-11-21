@@ -44,19 +44,10 @@ int obterQuantidadeJogadores() {
     setlocale(0, "Portuguese");
 
     int quantidade;
+        printf("Digite a quantidade de jogadores (entre 2 e 4): ");
+        scanf ("%d", &quantidade);
 
     do {
-        printf("Digite a quantidade de jogadores (entre 2 e 4): ");
-
-        // Verifica se a entrada é um número inteiro
-        if (scanf("%d", &quantidade) != 1) {
-            printf("Entrada inválida. Por favor, insira um número inteiro.\n");
-
-            // Limpa o buffer de entrada
-            while (getchar() != '\n');
-
-            continue;  // Reinicia o loop para pedir a entrada novamente
-        }
 
         if (quantidade < 2 || quantidade > 4) {
             printf("Por favor, escolha um número entre 2 e 4.\n");
@@ -70,13 +61,12 @@ int obterQuantidadeJogadores() {
 int receberPalpites(int quantidadeJogadores) {
     int palpite;
 
-    for (int i = 1; i <= quantidadeJogadores; ++i) {
-        printf("\nJogador %d, é a sua vez.\n", i);
-
         do {
+    		for (int i = 1; i <= quantidadeJogadores; ++i) {
+        	printf("\nJogador %d, é a sua vez.\n", i);
             printf("Digite o seu palpite: ");
             scanf("%d", &palpite);
-
+            
             if (palpite == numeroPensado) {
                 printf("Parabéns, Jogador %d! Seu palpite está correto.\n", i);
                 return 0;
@@ -92,8 +82,8 @@ int receberPalpites(int quantidadeJogadores) {
                     return 0;
                 }
             }
-        } while (1);
-    }
+    	}
+    } while (1);
 }
 
 // Função principal do jogo
